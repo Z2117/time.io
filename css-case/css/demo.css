@@ -1,0 +1,75 @@
+/****第一步图片自转**********
+*{margin:0;padding:0;}
+.path{width:300px;height:300px;padding:20px;
+    border:1px solid red;margin:20px auto;
+    border-radius:50%;
+	background-color:yellow;}
+img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+
+}
+img { animation:run 3s linear infinite;}
+@keyframes run {
+    from{transform:rotate(0deg);}
+    to { transform: rotate(360deg);}
+}
+
+*/
+/******
+第二步添加transform-origin属性使图片围绕path对应的元素中心旋转***
+
+*{margin:0;padding:0;}
+.path{width:300px;height:300px;padding:20px;
+    border:1px solid red;margin:20px auto;
+    border-radius:50%;
+    background-color:yellow;}
+img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+
+}
+img { animation:run 3s linear infinite;
+        transform-origin:50% 150px;}
+@keyframes run {
+    from{transform:rotate(0deg);}
+    to { transform: rotate(360deg);}
+}
+******/
+/*添加div标签，以去除图片自转*/
+*{margin:0;padding:0;}
+.path{width:300px;height:300px;padding:20px;
+    border:1px solid red;margin:20px auto;
+    border-radius:50%;
+    background-color:yellow;}
+.box{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow:hidden;
+    margin: 0 auto;
+
+}
+.img {display: block;width:inherit;height:inherit;}
+.box{ animation:run 3s linear infinite;
+    transform-origin:50% 150px;}/*150px=path radius*/
+.box>img{animation:run-reverse 3s linear infinite;}
+@keyframes run {
+    from{transform:rotate(0deg);}
+    to { transform: rotate(360deg);}
+}
+@keyframes run-reverse{
+    from{transform:rotate(360deg);}
+    to{transform:rotate(0deg);}
+}
+
+
+
+
+
